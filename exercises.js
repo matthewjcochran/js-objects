@@ -64,6 +64,15 @@ console.log('My dog ' + dog.name + ' is ' + dog.age + ' years old and likes to '
   Console.log the object.
 */
 
+var kicks = {};
+
+kicks.brand = 'Nike';
+kicks.color = 'Black';
+kicks.size = 8.5;
+kicks.price = 65;
+kicks.buy = function(){return 'Now I is a cool kid!'};
+
+console.log(kicks);
 
 /* 
 
@@ -76,6 +85,13 @@ console.log('My dog ' + dog.name + ' is ' + dog.age + ' years old and likes to '
   console.log the object
 */
 
+plainBox = {};
+
+plainBox.color = 'green';
+plainBox.size = 13;
+plainBox.contents = [];
+
+console.log(plainBox);
 
 /*
 5. Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
