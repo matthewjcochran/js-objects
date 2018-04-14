@@ -410,3 +410,32 @@ function displayPassengers(car){
 }
 
 displayPassengers(fullCar);
+
+
+
+
+// Factorial
+
+function factorial(num){
+    var factorial = 1;
+    var i = num;
+    while(i > 0){
+        factorial *= i;
+        i--;
+    }
+    return factorial;
+}
+
+console.log(factorial(10));
+
+
+function isDivisibleBy(num, numList){
+    for(var i = 0; i < numList.length; i++){
+        if(num%numList[i] === 0){
+            return true
+        }
+    }
+    return false;
+}
+
+console.log(isDivisibleBy(10, [4,3,6,11]));
