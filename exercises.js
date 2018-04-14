@@ -247,6 +247,20 @@ printOrders(arrayOfObjects);
         to inspect your results.
 */
 
+var sumObj = {
+    a: 137,
+    b: 24,
+    result : undefined
+};
+
+function objectAddition(object){
+    object.result = object.a + object.b;
+    return object;
+}
+
+console.log(sumObj);
+console.log(objectAddition(sumObj));
+
 
 /*
 9. Print sum function and add as new key-value
@@ -265,6 +279,17 @@ printOrders(arrayOfObjects);
         **create more** objects and invoke your function multiple times.
  */
 
+function printObj(object){
+    var text = object.a + ' + ' + object.b + ' = ' + object.result;
+    console.log(text);
+    object.output = text;
+    return object;
+}
+
+printObj(sumObj);
+sumObj.a = 12;
+objectAddition(sumObj);
+printObj(sumObj);
 
 /*
 10. Putting stuff in `plainBox`
@@ -276,6 +301,17 @@ printOrders(arrayOfObjects);
         plainBoxResult and use `console.log` to inspect your results.
  */
 
+ var plainBox;
+
+ function putInPlainBox(box){
+    box.contents = [];
+    for(var i = 0; i < 10; i++){
+        box.contents.push(Math.floor(Math.random()*100));
+    }
+    return box;
+ }
+
+ console.log(putInPlainBox(plainBox).contents);
 
 /*
 11. Detecting transmission
@@ -288,6 +324,16 @@ printOrders(arrayOfObjects);
     Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
 
+function detectingTransmission(car){
+    if(car.automaticTransmission === true){
+        return 'This auto has an automatic transmission.';
+    }else{
+        return 'This car does not have an automatic transmission.';
+    }
+}
+
+var isAutomaticTransmission = detectingTransmission(stockCar);
+console.log(isAutomaticTransmission);
 
 /*
 12.  Who's driving this thing?!
@@ -301,8 +347,13 @@ printOrders(arrayOfObjects);
       your results. Consider using `plainPerson` as your driver.
  */
 
+function addDriver(car, person){
+    car.driver = person;
+    return car;
+}
 
-
+var stockCarWithDriver = addDriver(stockCar, plainPerson); 
+console.log(stockCarWithDriver);
 
 /*
     #Final Boss
@@ -336,3 +387,26 @@ printOrders(arrayOfObjects);
         'Marifel, age 19, is riding dirty!'
         'Victor, age 19, is riding dirty!'
  */
+
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor'];
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
+function addPassengers(car, names, ages){
+    // var plainPerson = {}; // Object names are pointers???
+    var passenger;
+    for(var i = 0; i < names.length; i++){
+        passenger = buildPerson({}, names[i], ages[i]);
+        car.passenger.push(passenger);
+    }
+    return car;
+}
+
+fullCar = addPassengers(stockCar, passengerList, passengerAges);
+
+function displayPassengers(car){
+    for(var i = 0; i < car.passenger.length; i++){
+        console.log(car.passenger[i].name + ', age ' + car.passenger[i].age + ', is riding dirty!');
+    }
+}
+
+displayPassengers(fullCar);
